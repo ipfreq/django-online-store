@@ -1,0 +1,89 @@
+{% extends 'shop/shop_base.html '%}
+{% load staticfiles %}
+{% block title %}
+{% if category %}
+{{category}}
+{% elif string %}
+{{string}}
+{% elif product %}
+{{product}}
+{% else %}
+Gelectronics
+{% endif %}
+{% endblock %}
+{% block body %}
+
+<form class="form-inline my-2 my-lg-0  pl-3  pt-3 pb-3 pr-3 search bg-light"  action="{% url 'shop:search_items' %}" method="get">
+      <input class="form-control mr-sm-2" name='items_search_form' type="search" placeholder="Search" aria-label="Search">
+    </form>
+    <div class="title-bar">
+      <h3>
+        {% if category %}
+        {{category}}
+        {% elif string %}
+        {{string}}
+        {% else %}
+        All Products
+        {% endif %}
+      </h3>
+    </div>
+
+<div class="side-bar">
+  <ul>
+    <li>
+      <a href="{% url 'shop:product_list' %}">All Products</a>
+    </li>
+    {% for category in categories %}
+    <li>
+      <a href="{{category.get_absolute_url}}">{{category}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<!-- <div class="gallery"> -->
+  <div class=" gallery">
+  {%for product in products %}
+  <div class="card card-cu ">
+    <a href="{{product.get_absolute_url}}"><img class="card-img-top" width="150px"  height="150px" src="{{product.image.url}}" alt="Card image cap"></a>
+    <div class="card-body">
+      <a class="clean-font" href="{{product.get_absolute_url}}">{{product.name}}</a>
+      <a href="{{product.category.get_absolute_url}}">
+        <h5 class="card-title my-text">
+          <span class="badge badge-pill badge-warning">
+            {{product.category}}
+          </span>
+        </h5></a>
+      <p class="card-text my-text">{{product.description}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{product.created}}</small>
+    </div>
+    <form class=""  action="{% url "cart:cart_add"  product.id %}"  method="post">
+      {% csrf_token %}
+      {{cart_form.as_p}}
+        <span> <button class="badge badge-pill badge-secondary" type="submit" name="button">Add to cart</button></span>
+    </form>
+  </div>
+  {% empty %}
+  <h1>No products are available</h1>
+  {% endfor %}
+  <footer class="footer">
+      <ul class='footer-ul'>
+        <li class=''>Contact us</li>
+      <li class=''>Help</li>
+        <li class=' '>About</li>
+      </ul>
+  </footer>
+
+  </div>
+  <!-- <div class="feed-bar">
+        <div class="feeds">
+        <a href="#">Feeds</a>
+        </div>
+  </div> -->
+
+<!-- </div> -->
+
+{% endblock %}

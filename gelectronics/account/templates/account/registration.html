@@ -1,0 +1,51 @@
+{% extends "shop/shop_base.html" %}
+{%block body%}
+
+
+<div class="d-flex justify-content-center pt-5 mt-5">
+  <form class="form-group form-control col-10 pt-5 " action="." method="post" enctype="multipart/form-data">
+
+    {% for field in u_form.visible_fields %}
+    {% if field.name == "password1" %}
+    <div class="form-group row   d-flex justify-content-center">
+        <label class=" form-text col-md-2 " for="{{field.name}}">{{field.name}}</label>
+        <input class="form-control col-md-5  " id="{{field.name}}" type="password" name="{{field.name}}" value="">
+    </div>
+    {% else %}
+
+    <div class="form-group row   d-flex justify-content-center">
+        <label class=" form-text col-md-2 " for="{{field.name}}">{{field.name}}</label>
+        <input class="form-control col-md-5  " id="{{field.name}}" type="{{field.name}}" name="{{field.name}}" value="">
+    </div>
+    {% endif %}
+
+    {% endfor %}
+
+
+
+    {% with a_form.visible_fields|first as field %}
+    <div class="form-group row   d-flex justify-content-center">
+      <label class=" form-text col-md-2 " for="{{field.name}}">{{field.name}}</label>
+      <input class="form-control-file col-md-5  " id="{{field.name}}" type="file" name="{{field.name}}" value="">
+        </div>
+        {% endwith %}
+
+        {% with a_form.visible_fields|last as field%}
+        <div class="form-group row   d-flex justify-content-center">
+          <label class=" form-text col-md-2 " for="{{field.name}}">{{field.name}}</label>
+          <input class="form-control  col-md-5  " id="{{field.name}}" type="text" name="{{field.name}}" value="">
+            </div>
+            {% endwith %}
+
+              {% csrf_token %}
+          <div class="form-group row   d-flex justify-content-center">
+        <input class="btn btn-primary " type="submit" name="" value="Create my account">
+        </div>
+
+
+  </form>
+
+  {% csrf_token %}
+</div>
+
+{% endblock %}

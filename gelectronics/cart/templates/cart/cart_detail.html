@@ -1,0 +1,59 @@
+{% extends 'shop/shop_base.html '%}
+{% load staticfiles %}
+{% block title %}
+cart
+{% endblock %}
+
+{% block body %}
+
+
+<table class="table table-hover cart-table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th class ="cart-font"scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th class ="cart-font"scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity Price</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in cart %}
+    {% with product=item.product %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td><a class="cart-font" href="{{item.product.get_absolute_url}}">
+        <img src="{{item.product.image.url}}" width="150px" height="150px" alt=""><br><h3>{{item.product.name}}</h3>
+      </a></td>
+      <td>{{item.quantity}}</td>
+      <td><form class="" action="{% url "cart:cart_add" product.id %}" method="post">
+        {{ item.update_quantity_form.quantity }}
+        {{ item.update_quantity_form.update }}
+
+        <span> <button class="badge badge-pill badge-success" type="submit" name="button">Update</button></span>
+        {% csrf_token %}
+      </form></td>
+      <td>{{item.price}}$</td>
+      <td>{{item.total_price}}$</td>
+      <td><a class="clean-font" href="{% url "cart:cart_remove" product.id %}">
+ <button class="btn btn-success" type="submit" name="button"> Remove</button></a></td>
+    </tr>
+    {% endwith %}
+    {% endfor %}
+    <tr>
+      <th scope="row">-</th>
+      <td colspan="2">Total</td>
+      <td>{{cart.get_total_price}}$</td>
+    </tr>
+    <tr>
+      <th scope="row">-</th>
+      <td colspan="2"><a href="#">Check out</a></td>
+      <td><a href="{% url "shop:product_list"%}">Continue shopping</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}

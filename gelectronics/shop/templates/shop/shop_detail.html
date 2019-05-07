@@ -1,0 +1,59 @@
+{% extends 'shop/shop_base.html '%}
+{% load staticfiles %}
+{% block title %}
+{{product}}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="detail-view">
+  <div class="card card-detail ">
+    <a href="{{product.get_absolute_url}}"><img class="card-img-top" width="150px"  height="150px" src="{{product.image.url}}" alt="Card image cap"></a>
+    <div class="card-body">
+      <a class="clean-font" href="{{product.get_absolute_url}}">{{product.name}}</a>
+      <a href="{{product.category.get_absolute_url}}">
+        <h5 class="card-title my-text">
+          <span class="badge badge-pill badge-warning">
+            {{product.category}}
+          </span></h5></a>
+          <p class="card-text my-text">{{product.description}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{product.created}}</small>
+    </div>
+  </div>
+  <div class="des-detail">
+      <h4>{{product}}</h4>
+      <p>{{product.description}}</p>
+  </div>
+  <div class="comments">
+        {% if request.user.is_authenticated %}
+    <form class="comments-form " action="{% url "shop:comment" product.id %}" method="post">
+        {% for field in form.visible_fields%}
+            <input class="form-control comment_text ml-5 mr-2 " type="text" name="{{field.name}}" value="" placeholder="write your rate">
+      <!-- {{form.as_p}} -->
+      {% endfor %}
+      {% csrf_token %}
+        <button class="btn btn-success " type="submit" name="button">comment</button>
+
+    </form>
+    {% endif %}
+    {% for comment in comments %}
+<h5 class="comment-username mt-5">{{comment.commenter}}</h5>
+  <p class="comment-text">{{comment.comment}}</p><br>
+  {% empty %}
+  <h5 class="comment-username mt-5">Admin</h5>
+    <p class="comment-text">No comments are available</p><br>
+    {% endfor %}
+  </div>
+  <footer class="footer">
+      <ul class='footer-ul'>
+        <li class=''>Contact us</li>
+      <li class=''>Help</li>
+        <li class=' '>About</li>
+      </ul>
+  </footer>
+</div>
+
+{% endblock %}

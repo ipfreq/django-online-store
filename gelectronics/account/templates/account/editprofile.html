@@ -1,0 +1,14 @@
+{% extends "shop/shop_base.html" %}
+{% block body %}
+<div class="profile">
+  <a href="{% url "account:edit" %}"><button class="btn btn-primary" type="button" name="button">Edit</button></a>
+
+  {% if user.account.dp_image %}
+  <img class="image-profile" width="500px" height="300px" src="{{user.account.dp_image.url}}" alt="">
+  {% endif %}
+  <h1 class="user-name">{{user}}</h1>
+  <h3 class="user-birthday">{{user.account.birth_date}}</h3>
+
+</div>
+
+{% endblock %}

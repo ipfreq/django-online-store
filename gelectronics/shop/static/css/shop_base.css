@@ -1,0 +1,386 @@
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Tammudu|Gamja+Flower');
+
+body
+{
+  width: 100%;
+  height:100%;
+  background-color: #f8f9fa;
+}
+.gallery
+{
+  display: flex;
+  position: absolute;
+  flex-wrap:wrap;
+  left:250px;
+  right:0;
+  top:150px;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.search
+{
+  width:250px;
+  z-index: 6;
+  position:fixed;
+  top:45px;
+}
+.side-bar
+{
+  width:250px;
+  height:100%;
+  position: fixed;
+  top: 60px;left:0;
+  padding-top:70px;
+  overflow-y: scroll;
+  z-index: 2;
+  background-color: white;
+}
+
+.side-bar ul
+{
+  list-style: none;
+}
+
+.side-bar ul a
+{
+  text-decoration: none;
+  color:black;
+  font-family: cursive;
+  font-weight: normal;
+}
+
+.feed-bar
+{
+  width:250px;
+  height:100%;
+  position: fixed;
+  top: 100px;right:10px;;
+  padding-top:15px;
+  overflow-y: scroll;
+  overflow-y: hidden;
+  background-color:white;
+  box-shadow: 1px 1px 1px 1px black;
+  border-top-left-radius:15px ;
+  z-index: 7;
+}
+
+.feed-bar ul
+{
+  list-style: none;
+}
+
+.feed-bar ul a
+{
+  text-decoration: none;
+  color:black;
+  font-family: cursive;
+  font-weight: normal;
+  border-left:2px solid black;
+}
+
+.feeds
+{
+  position: relative;
+  text-align: center;
+}
+.feeds a
+{
+  text-decoration: none;
+  color:black;
+  font-family: cursive;
+  font-weight: normal;
+  font-size: 18px;
+}
+.card-cu
+{
+  max-width:200px;
+  max-height:500px;
+  justify-content: center;
+  min-width: 150px;
+  min-height: 400px;
+  flex-wrap:wrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin:15px 15px 15px 15px;
+}
+
+.footer
+{
+  width:100%;
+  position:relative;
+  top:500px;
+}
+.footer-ul
+{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-ul li
+{
+  display: flex;
+  font-family: cursive;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 15px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+}
+
+.title-bar
+{
+  position:fixed;
+  list-style: none;
+  left: 250px;
+  right:0;
+  top:53px;
+  z-index: 5;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.my-text
+{
+  text-align: center;
+}
+
+.detail-view
+{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width:100%;
+  top:200px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
+
+.card-detail
+{
+  position: relative;
+  top:10px;left:10px;
+  max-width:300px;
+  max-height:500px;
+  justify-content: center;
+  min-width: 250px;
+  min-height: 400px;
+  flex-wrap:wrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin:15px 15px 15px 15px;
+}
+
+.des-detail
+{
+  position: relative;
+  top:10px;right:10px;
+  max-width:600px;
+  max-height:500px;
+  justify-content: center;
+  min-width:250px;
+  min-height: 400px;
+  flex-wrap:wrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.des-detail p
+{
+  margin-left: 25px;
+}
+
+.clean-font
+{
+  font-family:cursive;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+}
+
+.clean-font:hover
+{
+  text-decoration:none;
+  color:black;
+}
+.comments
+{
+  display:flex;
+  flex-wrap:wrap;
+  width:100%;
+  display: block;
+  left:0;
+}
+
+.comments-form
+{
+  margin-top:50px;margin-bottom:50px;
+  display:flex;
+}
+.comment-text
+{
+  margin-left: 20px;
+}
+.comment-username{
+  margin-left: 10px;
+}
+.form-control
+{
+  max-width: 600px;
+  min-width:80px;
+}
+
+.profile
+{
+  display:flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top:100px;left:30px;
+  background-color: red;
+}
+.image-profile
+{
+  position: absolute;
+  top:100px;
+  width:200px;height:200px;
+  border: ridge 2px black;
+  border-radius: 100px;
+
+}
+.user-name
+{
+  position: absolute;
+  top:300px;left:25px;
+  font-family: cursive;
+  width:500px;
+
+}
+.user-not-found
+{
+  position: absolute;
+  top:100px;left:0;right:0;
+  font-family: cursive;
+  font-weight: bold;
+  text-align: center;
+
+
+}
+
+.user-birthday
+{
+  position: absolute;
+  top:380px;left:25px;
+  width: 250px;
+  font-family: sans-serif;
+}
+
+.cart-font
+{
+  font-family:cursive;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color:black;
+}
+
+.cart-font:hover
+{
+  text-decoration:none;
+  color:black;
+}
+.cart-table
+{
+  position: absolute;
+  top:100px;
+}
+@media (max-width:992px)
+{
+  .side-bar
+  {
+    display:none;
+  }
+  .feed-bar
+  {
+    display:none;
+  }
+  .search
+  {
+    width:100%;
+    justify-content: center;
+  }
+  .footer
+  {
+
+    right:0;
+    left:0;
+  }
+
+  .footer li
+  {
+    width:100%;
+  }
+
+  .title-bar
+  {
+    position:fixed;
+    list-style: none;
+    left: 0;
+    right:0;
+    top:120px;
+    z-index: 5;
+    text-align: center;
+  }
+  .gallery
+  {
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    right:0;
+    left:0;
+    top:200px;
+    justify-content: center;
+  }
+
+  .detail-view
+  {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    top:200px;
+    /* background: red; */
+    justify-content:center;
+  }
+  .card-detail
+  {
+    position: relative;
+    top:10px;
+    max-width:300px;
+    max-height:500px;
+    justify-content: center;
+    min-width: 250px;
+    min-height: 400px;
+    flex-wrap:wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .des-detail
+  {
+    position: relative;
+    top:10px;right:auto;
+    max-width:600px;
+    max-height:500px;
+    justify-content: center;
+    min-width:250px;
+    min-height: 400px;
+    flex-wrap:wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+}
